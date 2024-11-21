@@ -2,6 +2,10 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  if (!cartItems) {
+    const cartTotal = document.querySelector(".cart-footer");
+    cartTotal.setAttribute("class", "hide");
+  }
 
   if (!Array.isArray(cartItems) || cartItems.length === 0) {
     document.querySelector(".product-list").innerHTML =
@@ -11,6 +15,8 @@ function renderCartContents() {
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   attachRemoveListeners();
+
+  calculateTotal(cartItems);
 }
 
 function cartItemTemplate(item) {
@@ -47,6 +53,7 @@ function attachRemoveListeners() {
 }
 
 function removeItemFromCart(itemId) {
+  // we need to fin the way to delite only one item !!!!
   let cart = getLocalStorage("so-cart") || [];
 
   // Remove the item with the given ID
@@ -57,6 +64,15 @@ function removeItemFromCart(itemId) {
 
   // Re-render the cart after removing the item
   renderCartContents();
+}
+
+function calculateTotal(cartItems) {
+  // Need to find a way not to display total after the item has been removed
+  let total = 0;
+  cartItems.map((item) => (total += item.FinalPrice * item.Quantity));
+  let cartPElement = document.querySelector(".cart-total");
+  cartPElement.innerHTML = "";
+  cartPElement.insertAdjacentHTML("afterbegin", `Total: $${total}`);
 }
 
 renderCartContents();
