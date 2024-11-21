@@ -1,4 +1,10 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  changeValueFromKeyList,
+} from "./utils.mjs";
+
+const cartIconNotification = document.querySelector(".item-count");
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
@@ -76,3 +82,4 @@ function calculateTotal(cartItems) {
 }
 
 renderCartContents();
+changeValueFromKeyList(cartIconNotification, "so-cart");

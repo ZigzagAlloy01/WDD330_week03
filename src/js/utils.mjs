@@ -41,3 +41,12 @@ export function renderListWithTemplate(template, parentElement, list, position="
     parentElement.insertAdjacentHTML(position, html.join(""));
   }
 }
+
+// change the value of an element based on a LocalStorage variable
+export function changeValueFromKeyList(element, key) {
+  if (getLocalStorage(key) == null)  {
+    element.textContent = ""
+  } else {
+    element.textContent = getLocalStorage(key).length
+  }
+}
