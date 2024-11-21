@@ -36,11 +36,11 @@ function cartItemTemplate(item) {
 
 function attachRemoveListeners() {
   // Attach event listeners to each remove button (X)
-  const removeButtons = document.querySelectorAll('.remove-item');
-  
-  removeButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const itemId = button.getAttribute('data-id');
+  const removeButtons = document.querySelectorAll(".remove-item");
+
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const itemId = button.getAttribute("data-id");
       removeItemFromCart(itemId);
     });
   });
@@ -50,7 +50,7 @@ function removeItemFromCart(itemId) {
   let cart = getLocalStorage("so-cart") || [];
 
   // Remove the item with the given ID
-  cart = cart.filter(item => item.Id !== itemId);
+  cart = cart.filter((item) => item.Id !== itemId);
 
   // Update localStorage with the new cart
   setLocalStorage("so-cart", cart);
