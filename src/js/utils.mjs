@@ -31,3 +31,13 @@ export function getParams(param) {
   const product = urlParams.get(param)
   return product
 }
+
+// generates content with HTML template 
+export function renderListWithTemplate(template, parentElement, list, position="afterbegin", clear=false) {
+  if (clear) {
+    parentElement.insertAdjacentHTML(position, ``); 
+  } else {
+    const html = list.map(template);
+    parentElement.insertAdjacentHTML(position, html.join(""));
+  }
+}
