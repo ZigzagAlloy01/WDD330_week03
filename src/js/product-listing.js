@@ -10,7 +10,7 @@ const element = document.querySelector(".product-list");
 //
 const listElement = document.querySelector(".product-list");
 const productList = new ProductListing("tents", dataSource, listElement);
-/*const cartIconNotification = document.querySelector(".item-count");*/
+const cartIconNotification = document.querySelector(".item-count");
 
 // create an instance of your ProductListing class
 const products = new ProductListing(category, dataSource, element);

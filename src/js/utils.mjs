@@ -49,6 +49,13 @@ export function renderWithTemplate(template, parentElement, data, position="afte
   }
 }
 
+export async function convertToText(response) {
+  if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return response.text();
+}
+
 export async function loadTemplate(path) {
   const html = await fetch(path).then(convertToText);
   const template = document.createElement('template');
@@ -71,9 +78,10 @@ export async function loadHeaderFooter() {
 
 // change the value of an element based on a LocalStorage variable
 export function changeValueFromKeyList(element, key) {
-  if (getLocalStorage(key) == null)  {
-    element.textContent = ""
-  } else {
-    element.textContent = getLocalStorage(key).length
+  if (!element) {
+    console.error("Provided element is null.");
+    return;
   }
+  const data = getLocalStorage(key);
+  element.textContent = data ? data.length : "";
 }

@@ -247,6 +247,30 @@ button {
   display: none;
 }
 
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item img {
+  width: 100px;
+  height: auto;
+}
+
+.grid-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
