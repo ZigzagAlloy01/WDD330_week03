@@ -7,3 +7,5 @@ Salamanca Ivan
 Trello Board
 
 https://trello.com/b/KWK0tTE3/wdd-330-block-sleep-outside
+
+week03
