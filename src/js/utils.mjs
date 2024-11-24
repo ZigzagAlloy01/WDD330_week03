@@ -42,6 +42,33 @@ export function renderListWithTemplate(template, parentElement, list, position="
   }
 }
 
+export function renderWithTemplate(template, parentElement, data, position="afterbegin", clear=false) {
+  parentElement.insertAdjacentHTML(position, template);
+  if(callback) {
+    callback(data);
+  }
+}
+
+export async function loadTemplate(path) {
+  const html = await fetch(path).then(convertToText);
+  const template = document.createElement('template');
+  template.innerHTML = html;
+  return template;
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplate = await loadTemplate('/partials/header.html');
+  const footerTemplate = await loadTemplate('/partials/footer.html');
+  
+  // Obtener los elementos del DOM
+  const headerElement = document.getElementById('main-header');
+  const footerElement = document.getElementById('main-footer');
+  
+  // Insertar el contenido de las plantillas en los elementos correspondientes
+  headerElement.innerHTML = headerTemplate.innerHTML;
+  footerElement.innerHTML = footerTemplate.innerHTML;
+}
+
 // change the value of an element based on a LocalStorage variable
 export function changeValueFromKeyList(element, key) {
   if (getLocalStorage(key) == null)  {

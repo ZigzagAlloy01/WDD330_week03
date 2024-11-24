@@ -1,6 +1,7 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
 import { changeValueFromKeyList } from "./utils.mjs";
+import { loadHeaderFooter } from './utils.mjs';
 
 const category = "tents";
 const dataSource = new ProductData(category);
@@ -16,3 +17,4 @@ const products = new ProductListing(category, dataSource, element);
 products.init();
 
 changeValueFromKeyList(cartIconNotification, "so-cart");
+loadHeaderFooter()
