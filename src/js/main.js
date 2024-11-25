@@ -18,3 +18,18 @@ products.init();
 
 /*changeValueFromKeyList(cartIconNotification, "so-cart");*/
 loadHeaderFooter();
+
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", () => {
+    const searchTerm = searchBar.value.toLowerCase();
+    const productItems = document.querySelectorAll(".product-card");
+    
+    productItems.forEach(item => {
+        const productName = item.querySelector(".card__name").textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});
