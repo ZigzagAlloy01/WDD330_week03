@@ -1,5 +1,5 @@
 // generates a list of product cards in HTML from an array
-import ProductData from "./ProductData.mjs";
+
 import { renderListWithTemplate } from "./utils.mjs";
 
 //return a template literal string for each of the templates needed
@@ -22,7 +22,7 @@ export default class ProductListing {
     }
 
     async init() {
-        const list = await this.dataSource.getData();
+        const list = await this.dataSource.getData(this.category);
         this.renderList(list);
     }
 
