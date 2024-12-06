@@ -1,0 +1,19 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "name": "Wedding",
+        "date": "2024-12-10",
+        "location": "New York"
+      }
+    ],
+    "tasks": [
+      {
+        "id": 101,
+        "eventId": 1,
+        "name": "Book Venue",
+        "dueDate": "2024-12-01"
+      }
+    ]
+  }
+  
