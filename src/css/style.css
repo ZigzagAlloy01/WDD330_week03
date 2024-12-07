@@ -36,7 +36,7 @@ header {
 }
 
 .logo {
-  line-height: 60px;
+  line-height: 2rem;
   width: 245px;
   overflow: hidden;
   display: flex;
@@ -46,8 +46,9 @@ header {
 }
 
 .logo img {
-  width: 60px;
-  height: 60px;
+  width: 1.3rem;
+  height: 1rem;
+  margin: 1rem;
 }
 
 .logo a {
@@ -337,6 +338,20 @@ button:disabled {
 #discount-message {
   margin-top: 10px;
   font-weight: bold;
+}
+
+#calendar {
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+#weatherSquare ul {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  place-self: center;
+  text-align: center;
+  list-style-type: none;
 }
 
 @media screen and (min-width: 500px) {

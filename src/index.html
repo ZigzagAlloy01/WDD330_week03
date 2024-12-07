@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
+    <title>Event/Task Manager | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/_weather.js" type="module"></script>
   </head>
 
   <body>
@@ -18,62 +19,24 @@
           alt="image of a high mountain lake"
         />
         <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
-          <div>Sleep<span class="highlight">Outside</span></div>
+          <div>Event/<span class="highlight">Task Manager</span></div>
         </div>
       </div>
-      <section class="mission">
-        <p>We spend too much time these days indoors...sitting usually.</p>
-        <p>No wonder we are a mess! We need something else</p>
-        <p>
-          What we really need is to get outside...in fact SLEEP outside. Our
-          mission is to provide you with everything you need to do this
-          comfortably at an affordable price.
-        </p>
-      </section>
-
       <section class="products">
-        <div class="grid-products">
-          <div class="grid-item">
-            <img
-              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Tent_3544767.svg"
-              alt="Tent Icon from Noun Project: Mustofa Bayu"
-            />
-            <p>Tents</p>
-          </div>
-          <div class="grid-item">
-            <img
-              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_carrier%20bag_3544771.svg"
-              alt="Backpack Icon from Noun Project: Mustofa Bayu"
-            />
-            <p>Backpacks</p>
-          </div>
-          <div class="grid-item">
-            <img
-              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Sleeping%20Bag_3544775.svg"
-              alt="Sleeping Bag Icon from Noun Project: Mustofa Bayu"
-            />
-            <p>Sleeping Bags</p>
-          </div>
-          <div class="grid-item">
-            <img
-              src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Hammock_791143.svg"
-              alt="Hammock Icon from Noun Project: Paul Richard"
-            />
-            <p>Hammocks</p>
-          </div>
-        </div>
-        <h2>Top Products</h2>
-        <div class="search-container">
-          <input
-            type="text"
-            id="searchBar"
-            placeholder="Search for a product..."
-          />
-        </div>
-        <ul class="product-list"></ul>
-      </section>
-
+        <h1>Event Planner & Task Manager</h1>
+        <p>The goal of this application is to help event planners and individuals manage tasks, schedules, and resources effectively, by integrating both event planning and task management into one platform.</p>
+      <div id="weatherSquare">
+        <ul>
+          <li class="our-city">Ciudad Juárez, México</li>
+          <li><span id="current-temp"></span></li>
+          <li><figure>
+              <img id="weather-icon" src="" alt="">
+              <figcaption></figcaption>
+              </figure>
+          </li>
+      </ul>
+      </div>
+      <h1>Event Manager</h1>
       <form id="eventForm">
         <input type="text" id="eventName" placeholder="Event Name" required />
         <input type="date" id="eventDate" required />
@@ -83,7 +46,38 @@
     
       <!-- Event List -->
       <h2>All Events</h2>
+      <input
+            type="text"
+            id="eventSearchBar"
+            placeholder="Search for a event..."
+          />
       <ul id="eventList"></ul>
+      <h1>Task Manager</h1>
+
+  <!-- Task Form -->
+      <form id="taskForm">
+        <input type="text" id="taskName" placeholder="Task Name" required />
+        <select id="taskPriority" required>
+          <option value="" disabled selected>Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <input type="text" id="taskEventId" placeholder="Event ID" required />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <!-- Task List -->
+      <h2>All Tasks</h2>
+      <input
+            type="text"
+            id="taskSearchBar"
+            placeholder="Search for a task..."
+          />
+      <ul id="taskList"></ul>
+
+      <h1>Event and Task Calendar</h1>
+      <div id="calendar"></div>
     </main>
     <footer id="main-footer"></footer>
   </body>
