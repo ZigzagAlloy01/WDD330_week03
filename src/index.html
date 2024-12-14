@@ -24,77 +24,76 @@
       </div>
       <section class="products">
         <h1>Event Planner & Task Manager</h1>
-        <p>The goal of this application is to help event planners and individuals manage tasks, schedules, and resources effectively, by integrating both event planning and task management into one platform.</p>
-      <div id="weatherSquare">
-        <ul>
-          <li class="our-city">Ciudad Juárez, México</li>
-          <li><span id="current-temp"></span></li>
-          <li><figure>
-              <img id="weather-icon" src="" alt="">
-              <figcaption></figcaption>
+        <p>
+          The goal of this application is to help event planners and individuals
+          manage tasks, schedules, and resources effectively, by integrating
+          both event planning and task management into one platform.
+        </p>
+        <div id="weatherSquare">
+          <ul>
+            <li class="our-city">Ciudad Juárez, México</li>
+            <li><span id="current-temp"></span></li>
+            <li>
+              <figure>
+                <img id="weather-icon" src="" alt="" />
+                <figcaption></figcaption>
               </figure>
-          </li>
-      </ul>
-      </div>
-      <h1>Event Manager</h1>
-      <form id="eventForm">
-        <input type="text" id="eventName" placeholder="Event Name" required />
-        <input type="date" id="eventDate" required />
-        <input type="text" id="eventLocation" placeholder="Location" required />
-        <button type="submit">Add Event</button>
-      </form>
-    
-      <!-- Event List -->
-      <h2>All Events</h2>
-      <input
+            </li>
+          </ul>
+        </div>
+        <h1>Event Manager</h1>
+        <form id="eventForm">
+          <input type="text" id="eventName" placeholder="Event Name" required />
+          <input type="date" id="eventDate" required />
+          <input
             type="text"
-            id="eventSearchBar"
-            placeholder="Search for a event..."
+            id="eventLocation"
+            placeholder="Location"
+            required
           />
-      <ul id="eventList"></ul>
-      <h1>Task Manager</h1>
+          <button type="submit">Add Event</button>
+        </form>
 
-  <!-- Task Form -->
-      <form id="taskForm">
-        <input type="text" id="taskName" placeholder="Task Name" required />
-        <select id="taskPriority" required>
-          <option value="" disabled selected>Priority</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <input type="text" id="taskEventId" placeholder="Event ID" required />
-        <button type="submit">Add Task</button>
-      </form>
+        <!-- Event List -->
+        <h2>All Events</h2>
+        <input
+          type="text"
+          id="eventSearchBar"
+          placeholder="Search for a event..."
+        />
+        <ul id="eventList"></ul>
+        <h1>Task Manager</h1>
 
-      <!-- Task List -->
-      <h2>All Tasks</h2>
-      <input
+        <form id="taskForm">
+          <input type="text" id="taskName" placeholder="Task Name" required />
+          <input
             type="text"
-            id="taskSearchBar"
-            placeholder="Search for a task..."
+            id="teamMember"
+            placeholder="Team Member Name"
+            required
           />
-      <ul id="taskList"></ul>
-      <h2>Assign Task to Team Member</h2>
-      <!-- Task Assignment Form -->
-      <form id="taskAssignmentForm">
-        <input type="text" id="taskName" placeholder="Task Name" required />
-        <input type="text" id="teamMember" placeholder="Team Member Name" required />
-        <select id="taskPriority" required>
-          <option value="" disabled selected>Priority</option>
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-        <button type="submit">Assign Task</button>
-      </form>
-      <!-- Display Assigned Tasks -->
-      <h3>Assigned Tasks</h3>
-      <ul id="assignedTaskList"></ul>
+          <select id="taskPriority" required>
+            <option value="" disabled selected>Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <input type="text" id="taskEventId" placeholder="Event ID" required />
+          <button type="submit">Add Task</button>
+        </form>
 
-      <h1>Event and Task Calendar</h1>
-      <div id="calendar"></div>
+        <h2>All Tasks</h2>
+        <input
+          type="text"
+          id="taskSearchBar"
+          placeholder="Search for a task..."
+        />
+        <ul id="taskList"></ul>
+
+        <h1>Event and Task Calendar</h1>
+        <div id="calendar"></div>
+        <footer id="main-footer"></footer>
+      </section>
     </main>
-    <footer id="main-footer"></footer>
   </body>
 </html>

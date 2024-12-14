@@ -1,24 +1,24 @@
-const currentTemp = document.querySelector('#current-temp')
-const weatherIcon = document.querySelector('#weather-icon')
-const captionDesc = document.querySelector('figcaption')
-const url = 'https://api.openweathermap.org/data/2.5/weather?lat=49.75&lon=6.64&units=imperial&appid=7ff796c8357d5aaa81ed1eec4088d6c4'
+const currentTemp = document.querySelector("#current-temp");
+const weatherIcon = document.querySelector("#weather-icon");
+const captionDesc = document.querySelector("figcaption");
+const url =
+  "https://api.openweathermap.org/data/2.5/weather?lat=49.75&lon=6.64&units=imperial&appid=7ff796c8357d5aaa81ed1eec4088d6c4";
 
 function displayResults(data) {
-    currentTemp.innerHTML = `${data.main.temp}&degF`
-    const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`
-    weatherIcon.setAttribute('src', iconsrc)
-    weatherIcon.setAttribute('alt', 'Weather Icon')
-    captionDesc.textContent = `${data.weather[0].description}`
+  currentTemp.innerHTML = `${data.main.temp}&degF`;
+  const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  weatherIcon.setAttribute("src", iconsrc);
+  weatherIcon.setAttribute("alt", "Weather Icon");
+  captionDesc.textContent = `${data.weather[0].description}`;
 }
 
 function fetchWeatherData() {
-    fetch(url)
-        .then(response => response.json())
-        .then(data => displayResults(data))
-        .catch(error => console.error("Error fetching weather data: ", error))
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => displayResults(data))
 }
 
-document.addEventListener('DOMContentLoaded', fetchWeatherData)
+document.addEventListener("DOMContentLoaded", fetchWeatherData);
 
 /*
 https://openweathermap.org/

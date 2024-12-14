@@ -1,12 +1,12 @@
-import { Calendar } from "@fullcalendar/core"
-import dayGridPlugin from "@fullcalendar/daygrid"
-import interactionPlugin from "@fullcalendar/interaction"
+import { Calendar } from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
 
 export default class CalendarModule {
   constructor(events = [], tasks = []) {
-    this.events = events
-    this.tasks = tasks
-    this.calendar = null
+    this.events = events;
+    this.tasks = tasks;
+    this.calendar = null;
   }
 
   initCalendar(calendarElement) {
@@ -23,8 +23,8 @@ export default class CalendarModule {
       events: this.mergeEventsAndTasks(),
       dateClick: (info) => this.handleDateClick(info),
       eventClick: (info) => this.handleEventClick(info),
-    })
-    this.calendar.render()
+    });
+    this.calendar.render();
   }
 
   mergeEventsAndTasks() {
@@ -39,22 +39,22 @@ export default class CalendarModule {
         start: task.dueDate,
         color: "#28A745",
       })),
-    ]
+    ];
   }
 
   handleDateClick(info) {
-    const name = prompt("Enter the name of the event or task:")
+    const name = prompt("Enter the name of the event or task:");
     if (name) {
-      const newEvent = { name, date: info.dateStr }
-      this.events.push(newEvent)
-      localStorage.setItem("events", JSON.stringify(this.events))
-      this.calendar.addEvent({ title: name, start: info.dateStr })
+      const newEvent = { name, date: info.dateStr };
+      this.events.push(newEvent);
+      localStorage.setItem("events", JSON.stringify(this.events));
+      this.calendar.addEvent({ title: name, start: info.dateStr });
     }
   }
 
   handleEventClick(info) {
     if (confirm(`Do you want to remove "${info.event.title}"?`)) {
-      info.event.remove()
+      info.event.remove();
     }
   }
 }
