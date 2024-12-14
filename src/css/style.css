@@ -354,6 +354,17 @@ button:disabled {
   list-style-type: none;
 }
 
+.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  font-size: var(--small-font);
+  padding: 1em;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -368,9 +379,4 @@ button:disabled {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
-}
-
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
 }
