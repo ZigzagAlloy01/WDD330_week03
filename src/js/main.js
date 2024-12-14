@@ -18,8 +18,45 @@ const eventManager = new EventManager()
 const storedEvents = JSON.parse(localStorage.getItem("events")) || []
 const storedTasks = JSON.parse(localStorage.getItem("tasks")) || []
 const calendarModule = new CalendarModule(storedEvents, storedTasks)
-const eventSearchBar = document.querySelector("#eventSearchBar");
-const taskSearchBar = document.querySelector("#taskSearchBar");
+const eventSearchBar = document.querySelector("#eventSearchBar")
+const taskSearchBar = document.querySelector("#taskSearchBar")
+let assignedTasks = []
+
+function displayTasks() {
+  taskList.innerHTML = ''
+  assignedTasks.forEach((task, index) => {
+    const taskItem = document.createElement('li')
+    taskItem.innerHTML = `
+      <strong>Task:</strong> ${task.name} |
+      <strong>Assigned to:</strong> ${task.teamMember} |
+      <strong>Priority:</strong> ${task.priority}
+      <button onclick="removeTask(${index})">Remove</button>
+    `
+    taskList.appendChild(taskItem)
+  })
+}
+
+taskForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  const taskName = document.querySelector('#taskName').value
+  const teamMember = document.querySelector('#teamMember').value
+  const taskPriority = document.querySelector('#taskPriority').value
+  const newTask = {
+    name: taskName,
+    teamMember: teamMember,
+    priority: taskPriority,
+  }
+  assignedTasks.push(newTask)
+  taskForm.reset()
+  displayTasks()
+})
+
+function removeTask(index) {
+  assignedTasks.splice(index, 1)
+  displayTasks() 
+}
+displayTasks()
 
 document.addEventListener("DOMContentLoaded", () => {
   const calendarElement = document.getElementById("calendar")
@@ -93,7 +130,7 @@ taskList.addEventListener("click", (e) => {
 })
 
 function renderEvents() {
-  eventList.innerHTML = "" // Clear existing list
+  eventList.innerHTML = ""
   const events = eventManager.getAllEvents()
 
   events.forEach((event) => {
@@ -107,7 +144,6 @@ function renderEvents() {
   })
 }
 
-// Handle form submission
 eventForm.addEventListener("submit", (e) => {
   e.preventDefault()
 
@@ -118,11 +154,9 @@ eventForm.addEventListener("submit", (e) => {
   eventManager.addEvent(name, date, location)
   renderEvents()
 
-  // Reset form
   eventForm.reset()
 })
 
-// Handle event list actions (edit/delete)
 eventList.addEventListener("click", (e) => {
   const id = parseInt(e.target.dataset.id)
 
@@ -142,7 +176,7 @@ eventList.addEventListener("click", (e) => {
         })
         renderEvents()
         eventForm.reset()
-        eventForm.onsubmit = null // Reset behavior
+        eventForm.onsubmit = null
       }
     }
   }
@@ -174,7 +208,7 @@ eventList.addEventListener("click", (e) => {
     const filteredTasks = tasks.filter((task) =>
       task.name.toLowerCase().includes(searchTask)
     )
-    taskList.innerHTML = "" // Clear the list
+    taskList.innerHTML = ""
     filteredTasks.forEach((task) => {
       const li = document.createElement("li")
       li.innerHTML = `<strong>${task.name}</strong> - Priority: ${task.priority} (Event ID: ${task.eventId})`

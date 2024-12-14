@@ -75,6 +75,22 @@
             placeholder="Search for a task..."
           />
       <ul id="taskList"></ul>
+      <h2>Assign Task to Team Member</h2>
+      <!-- Task Assignment Form -->
+      <form id="taskAssignmentForm">
+        <input type="text" id="taskName" placeholder="Task Name" required />
+        <input type="text" id="teamMember" placeholder="Team Member Name" required />
+        <select id="taskPriority" required>
+          <option value="" disabled selected>Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button type="submit">Assign Task</button>
+      </form>
+      <!-- Display Assigned Tasks -->
+      <h3>Assigned Tasks</h3>
+      <ul id="assignedTaskList"></ul>
 
       <h1>Event and Task Calendar</h1>
       <div id="calendar"></div>
